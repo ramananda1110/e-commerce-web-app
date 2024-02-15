@@ -39,5 +39,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::resource('category', 'CategoryController');
 
+
 Route::resource('test', 'TestController');
 

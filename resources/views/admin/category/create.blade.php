@@ -11,9 +11,12 @@
           </div>
 
           <div class="row justify-content-center">
+            @if(Session::has('message'))
+                <div class="alert alert-success">{{Session::get('message')}}</div>
+            @endif
             <div class="col-lg-10">
               <!-- Form Basic -->
-              <form action="{{route('category.store')}}" method="post">@csrf
+              <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">@csrf
               
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
@@ -23,7 +26,7 @@
                   <form>
                     <div class="form-group">
                       <label for="name">Name</label>
-                      <input  id="name" aria-describedby="emailHelp"
+                      <input  id="name" name = "name"
                         placeholder="Enter name of category" class="form-control @error('name') is-invalid @enderror">
 
                           @error('name')
@@ -35,7 +38,7 @@
                     </div>
                     <div class="form-group">
                       <label for="description">Description</label>
-                      <textarea class="form-control @error('description') is-invalid @enderror"></textarea>
+                      <textarea name="description" class="form-control @error('description') is-invalid @enderror" ></textarea>
 
                           @error('description')
                                   <span class="invalid-feedback" role="alert">
@@ -47,18 +50,23 @@
                     <div class="form-group">
                       <div class="custom-file">
                         <label class="custom-file-label" for="customFile">Choose file</label>
-                        <input type="file" class="custom-file-input @error('image') is-invalid @enderror" id="customFile" name="image">
+                        <input type="file" name="image" class="custom-file-input @error('image') is-invalid @enderror" id="customFile">
 
-                        @error('image')
+                          @error('image')
                                   <span class="invalid-feedback" role="alert">
                                       <strong>{{ $message }}</strong>
                                   </span>
                           @enderror
                     
                       </div>
+                      
+                    </div>
+
+                    <div class="form-group" >
+                      <button type="submit" class="btn btn-primary">Submit</button>
+
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
                   </form>
                 </div>
               </div>
