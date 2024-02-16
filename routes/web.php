@@ -43,3 +43,4 @@ Route::resource('subcategory', 'SubcategoryController');
 
 Route::resource('test', 'TestController');
 
+Route::resource('product', 'ProductController');
