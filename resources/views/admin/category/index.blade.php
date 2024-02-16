@@ -36,10 +36,11 @@
                        @foreach($categories as $key=>$category)
                       <tr>
                         <td><a href="#">{{$key+1}}</a></td>
-                        <td><img src="{{Storage::url($category->image)}}" width="20px"/></td>
+                        <td><img src="{{Storage::url($category->image)}}" width="80px"/></td>
                         <td>{{$category->name}}</td>
                         <td>{{$category->description}}</td>
-                        <td><button class="btn  btn-primary">Detail</button></td>
+                        <td><a href="{{route('category.edit', [$category->id])}}"><button class="btn  btn-primary">Edit</button> </a>
+                          </td>
                         <td>
                             <form action="{{route('category.destroy', [$category->id])}}" method="POST"
                               onsubmit="return confirmDelete()">@csrf

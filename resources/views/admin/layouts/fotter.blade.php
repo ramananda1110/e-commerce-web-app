@@ -24,6 +24,9 @@
       return confirm("Are you sure you want to delete?");
     }
   </script> 
+
+<x-notify::notify />
+        @notifyJs
 </body>
 
 </html>

@@ -17,5 +17,4 @@
 <body id="page-top">
   @notifyCss
 
-  <x-notify::notify />
-        @notifyJs
+  
