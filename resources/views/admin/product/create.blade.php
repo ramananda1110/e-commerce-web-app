@@ -16,7 +16,7 @@
             @endif
             <div class="col-lg-10">
               <!-- Form Basic -->
-              <form action="{{route('category.store')}}" method="POST" enctype="multipart/form-data">@csrf
+              <form action="{{route('product.store')}}" method="POST" enctype="multipart/form-data">@csrf
               
               <div class="card mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
