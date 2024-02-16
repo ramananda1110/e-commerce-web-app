@@ -14,7 +14,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::get();
+        return view('admin.category.index', compact('categories'));
     }
 
     /**
@@ -54,8 +55,9 @@ class CategoryController extends Controller
             ]);
         
       
+        notify()->success('Category succefully added!');
 
-         return redirect()->back()->with('message', "category succefully added");
+        return redirect()->route('category.index');
     }
 
     /**
@@ -100,6 +102,11 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $filename = $category->image;
+        $category->delete();
+        \Storage::delete($filename);
+        notify()->success('Category deleted successfully!');
+        return redirect()->route('category.index');
     }
 }
