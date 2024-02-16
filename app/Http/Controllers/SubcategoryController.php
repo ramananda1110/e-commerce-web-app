@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Subcategory;
 
 class SubcategoryController extends Controller
 {
@@ -39,6 +40,16 @@ class SubcategoryController extends Controller
             'name'=>'required|min:3',
             'category'=>'required'
         ]);
+
+        Subcategory::create([
+            'name'=>$request->name,
+            'category_id'=>$request->category
+        ]);
+
+  
+        notify()->success('Sub category succefully added!');
+
+        return redirect()->back();
     }
 
     /**
