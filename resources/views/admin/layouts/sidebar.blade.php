@@ -30,6 +30,23 @@
           </div>
         </div>
       </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrapSubCategory"
+          aria-expanded="true" aria-controls="collapseBootstrapSubCategory">
+          <i class="far fa-fw fa-window-maximize"></i>
+          <span>SubCategory</span>
+        </a>
+        <div id="collapseBootstrapSubCategory" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">SubCategory</h6>
+            <a class="collapse-item" href="{{route('subcategory.index')}}">View</a>
+            <a class="collapse-item" href="{{route('subcategory.create')}}">Create</a>
+         
+          </div>
+        </div>
+      </li>
+
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
           aria-controls="collapseForm">
