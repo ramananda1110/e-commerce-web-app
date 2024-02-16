@@ -38,7 +38,7 @@
                     </div>
                     <div class="form-group">
                       <label for="description">Description</label>
-                      <textarea name="description" class="form-control @error('description') is-invalid @enderror" ></textarea>
+                      <textarea name="description" id="summernote" class="form-control @error('description') is-invalid @enderror" ></textarea>
 
                           @error('description')
                                   <span class="invalid-feedback" role="alert">
@@ -77,7 +77,7 @@
 
                     <div class="form-group">
                       <label for="additional_info">Additional information</label>
-                      <textarea name="additional_info" class="form-control @error('additional_info') is-invalid @enderror" ></textarea>
+                      <textarea id="summernote1" name="additional_info" class="form-control @error('additional_info') is-invalid @enderror" ></textarea>
 
                           @error('additional_info')
                                   <span class="invalid-feedback" role="alert">
