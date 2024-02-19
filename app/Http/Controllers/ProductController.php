@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Subcategory;
 
 class ProductController extends Controller
 {
@@ -37,5 +38,21 @@ class ProductController extends Controller
     }
 
 
+    public function destroy($id){
+        $product = Product::find($id);
+        $filename = $product->image;
+        $product->delete();
+        \Storage::delete($filename);
+        
+        notify()->success('Product deleted succefully!');
+
+        return redirect()->route('product.index');
+    }
+
+    public function loadSubcatogories(Request $request, $id){
+        $subcategory = Subcategory::where('category_id', $id)->pluck('name', 'id');
+
+        return response()->json($subcategory);
+    }
 
 }

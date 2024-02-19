@@ -44,3 +44,6 @@ Route::resource('subcategory', 'SubcategoryController');
 Route::resource('test', 'TestController');
 
 Route::resource('product', 'ProductController');
+
+Route::get('subcategories/{id}', 'ProductController@loadSubcatogories');
+

@@ -106,6 +106,19 @@
                       
                     </div>
 
+                    <div class="form-group">
+                      <div class="custom-file">
+                        <label>Choose Subcategory</label>
+                        <select class="form-control @error('subcategory') is-invalid @enderror" name="subcategory">
+                            <option value="">Select</option>
+                          
+                        </select>
+                    
+                       
+                      </div>
+                      
+                    </div>
+
                     <div class="form-group" >
                       <button  class="btn btn-primary">Submit</button>
 
@@ -121,5 +134,33 @@
           </div>
    
 </div> 
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script type="text/javascript">
+      $('document').ready(function(){
+          $('select[name="category"]').on('change', function(){
+             var catId = $(this).val();
+
+              if(catId){
+                $.ajax({
+                  url:'/subcategories/'+catId,
+                  type:"GET",
+                  dataType:"json",
+                  success: function(data){
+                    $('select[name="subcategory"]').empty();
+                    $.each(data, function(key, value){
+                      $('select[name="subcategory"]').append(
+                        '<option value="'+key+'">'+value+'</option>'
+                      );
+                    })
+                  }
+                })
+              } else {
+                $('select[name="subcategory"]').empty();
+              }
+             
+          });
+      });
+   </script> 
 
 @endsection
