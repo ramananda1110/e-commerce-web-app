@@ -10,8 +10,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        $product = Product::get();
-        return view('admin.product.index', compact('product'));
+        $products = Product::get();
+        return view('admin.product.index', compact('products'));
     }
 
     /**
@@ -43,11 +43,10 @@ class ProductController extends Controller
             'description'=>$request->description,
             'image'=>$image,
             'price'=>$request->price,
-            'additional_info'=>$request->addtional_info,
+            'additional_info'=>$request->additional_info,
             'category_id'=>$request->category,
             'subcategory_id'=>$request->subcategory,
             
-
 
        ]);
 
@@ -74,5 +73,41 @@ class ProductController extends Controller
 
         return response()->json($subcategory);
     }
+
+
+    public function productList(Request $request) {
+
+
+       
+        return response()->json([
+            'status_code' => 200,
+            'data' => Product::all(),
+            'message' => 'Successes'
+            
+        ], 200);
+     }
+
+     public function laptopList(Request $request) {
+
+        $username = $request->input('username');
+        $department = $request->input('department');
+    
+        // Build the query
+        $query = Product::query();
+    
+        // Apply filters if they exist
+       
+            $query->where('category_id', '2');
+        
+   
+        // Retrieve the filtered data
+        $filterProduct = $query->get();
+    
+        return response()->json([
+            'status_code' => 200,
+            'data' => $filterProduct,
+            'message' => 'Success',
+        ], 200);
+     }
 
 }
