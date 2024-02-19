@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Subcategory;
+use App\Models\Product;
 
 class ProductController extends Controller
 {
@@ -34,6 +35,25 @@ class ProductController extends Controller
             'additional_info'=>'required',
             'category'=>'required',
        ]);
+
+       $image = $request->file('image')->store('public/product');
+
+       Product::create([
+            'name'=>$request->name,
+            'description'=>$request->description,
+            'image'=>$image,
+            'price'=>$request->price,
+            'additional_info'=>$request->addtional_info,
+            'category_id'=>$request->category,
+            'subcategory_id'=>$request->subcategory,
+            
+
+
+       ]);
+
+       notify()->success('Product created successfully!');
+
+       return redirect()->back();
 
     }
 
