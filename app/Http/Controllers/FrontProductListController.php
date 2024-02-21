@@ -13,7 +13,8 @@ class FrontProductListController extends Controller
      */
     public function index()
     {
-       return view('product');
+        $products = Product::get();
+        return view('product', compact('products'));
     }
 
     /**
