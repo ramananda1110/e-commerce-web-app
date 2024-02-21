@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/index', function () {
-    return view('admin.dashboard');
-});
+
 
 // Route::get('/category', function () {
 //     return view('admin.category.create');
@@ -36,14 +34,23 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function (){
+   
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
 
-Route::resource('category', 'CategoryController');
+    Route::resource('category', 'CategoryController');
 
-Route::resource('subcategory', 'SubcategoryController');
+    Route::resource('subcategory', 'SubcategoryController');
 
-Route::resource('test', 'TestController');
+    Route::resource('test', 'TestController');
 
-Route::resource('product', 'ProductController');
+    Route::resource('product', 'ProductController');
 
-Route::get('subcategories/{id}', 'ProductController@loadSubcatogories');
+    Route::get('subcategories/{id}', 'ProductController@loadSubcatogories');
+
+
+});
+
 
