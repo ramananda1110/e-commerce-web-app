@@ -29,13 +29,13 @@
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
      
-      @foreach($products as $product)
+    @foreach($products as $product)
       <div class="col">
         <div class="card shadow-sm">
-           <img src="{{Storage::url($product->image)}}"> 
+           <img src="{{Storage::url($product->image)}}" height="300" style="width: 100%"> 
           <div class="card-body">
             <p><b>{{$product->name}}</b></p>
-            <p class="card-text">{{Str::limit($product->description), 120}}</p>
+            <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <a href="product/{{$product->id}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
@@ -55,7 +55,7 @@
 </div>
 
 
-<div class="jumborton">
+<div class="jumbotron">
 <div id="carouselExampleCaptions" class="carousel slide">
   <div class="carousel-indicators">
     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -65,34 +65,50 @@
   <div class="carousel-inner">
     <div class="carousel-item active">
         <div class="row">
-            <div class="col-3">
-                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
-            </div>
-            <div class="col-3">
-                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
-            </div>
-            <div class="col-3">
-                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
-            </div>
-            <div class="col-3">
-                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
-            </div>
+        @foreach($randomActiveProducts as $product)
+            
+          <div class="col-4">
+              
+                <div class="card shadow-sm">
+                  <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%"> 
+                  <div class="card-body">
+                    <p><b>{{$product->name}}</b></p>
+                    <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <div class="btn-group">
+                        <a href="product/{{$product->id}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
+                        <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
+                      </div>
+                      <small class="text-body-secondary">৳{{$product->price}}</small>
+                    </div>
+                  </div>
+                </div>
+            
+             
+          </div>
+          @endforeach   
         </div>
     </div>
     <div class="carousel-item">
         <div class="row">
-            <div class="col-3">
-                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+          @foreach($randomItemProducts as $product)
+            <div class="col-4">
+                  <div class="card shadow-sm">
+                    <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%"> 
+                    <div class="card-body">
+                      <p><b>{{$product->name}}</b></p>
+                      <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                          <a href="product/{{$product->id}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
+                          <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
+                        </div>
+                        <small class="text-body-secondary">৳{{$product->price}}</small>
+                      </div>
+                    </div>
+                  </div>
             </div>
-            <div class="col-3">
-                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
-            </div>
-            <div class="col-3">
-                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
-            </div>
-            <div class="col-3">
-                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
-            </div>
+            @endforeach   
         </div>
     </div>
 

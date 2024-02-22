@@ -140,7 +140,7 @@
       $('document').ready(function(){
           $('select[name="category"]').on('change', function(){
              var catId = $(this).val();
-
+              
               if(catId){
                 $.ajax({
                   url:'/subcategories/'+catId,

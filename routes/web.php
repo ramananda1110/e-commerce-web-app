@@ -37,6 +37,7 @@ Auth::routes();
 
 Route::get('/', 'FrontProductListController@index');
 Route::get('/product/{id}', 'FrontProductListController@show');
+Route::get('subcategories/{id}', 'ProductController@loadSubcatogories');
 
 
 Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function (){
@@ -52,8 +53,7 @@ Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function ()
     Route::resource('test', 'TestController');
 
     Route::resource('product', 'ProductController');
-
-    Route::get('subcategories/{id}', 'ProductController@loadSubcatogories');
+    
 
 
 });

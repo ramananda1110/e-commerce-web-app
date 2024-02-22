@@ -38,7 +38,7 @@ class ProductController extends Controller
        $this->validate($request,[
             'name'=>'required',
             'description'=>'required|min:3',
-            'image'=>'required|mimes:jpeg,png',
+            'image'=>'required|mimes:jpeg,png,jpg,webp',
             'price'=>'required|numeric',
             'additional_info'=>'required',
             'category'=>'required',
