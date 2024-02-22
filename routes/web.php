@@ -36,6 +36,8 @@ Auth::routes();
 
 
 Route::get('/', 'FrontProductListController@index');
+Route::get('/product/{id}', 'FrontProductListController@show');
+
 
 Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function (){
    

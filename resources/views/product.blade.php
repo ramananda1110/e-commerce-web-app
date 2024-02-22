@@ -38,7 +38,7 @@
             <p class="card-text">{{Str::limit($product->description), 120}}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-success">View</button>
+                <a href="product/{{$product->id}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
                 <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
               </div>
               <small class="text-body-secondary">৳{{$product->price}}</small>
@@ -52,6 +52,61 @@
       
     </div>
   </div>
+</div>
+
+
+<div class="jumborton">
+<div id="carouselExampleCaptions" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <div class="row">
+            <div class="col-3">
+                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+            </div>
+            <div class="col-3">
+                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+            </div>
+            <div class="col-3">
+                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+            </div>
+            <div class="col-3">
+                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+            </div>
+        </div>
+    </div>
+    <div class="carousel-item">
+        <div class="row">
+            <div class="col-3">
+                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+            </div>
+            <div class="col-3">
+                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+            </div>
+            <div class="col-3">
+                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+            </div>
+            <div class="col-3">
+                <img src="storage/images/photo1.jpeg" class="img-thumbnail">
+            </div>
+        </div>
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
 </div>
 
 </main>
