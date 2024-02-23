@@ -31,7 +31,7 @@
              <input type="text" name="min" class="form-control" placeholder="minimum price" required="">
             <br>
              <input type="text" name="max" class="form-control" placeholder="maximum price" required=""  >
-             <input type="hidden" name="categoryId" value="">
+             <input type="hidden" name="categoryId" value="{{$categoryId}}">
              
              <br>
              <br>
