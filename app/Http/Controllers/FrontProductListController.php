@@ -57,7 +57,12 @@ class FrontProductListController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        return view('show', compact('product'));
+        $productFromSameCategorries = Product::inRandomOrder()
+        ->where('category_id', $product->category_id)
+        ->where('id', '!=', $product->id)
+        ->limit(3)
+        ->get();
+        return view('show', compact('product', 'productFromSameCategorries'));
     }
 
     /**
