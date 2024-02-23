@@ -14,6 +14,7 @@
            
               <p><input type="checkbox" name="subcategory[]"
                value="{{$subcategory->id}}"
+              
                @if(isset($filterSubCategories))
                 {{in_array($subcategory->id,$filterSubCategories)?'checked ="checked" ':''}}
                @endif
@@ -55,7 +56,8 @@
             <div class="card-body">
                 <p><b>{{$product->name}} </b></p>
               <p class="card-text">
-                {{(Str::limit($product->description,120))}}
+              {!! Str::limit(strip_tags($product->description), 120) !!}
+                
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">

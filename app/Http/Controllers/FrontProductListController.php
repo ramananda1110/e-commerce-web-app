@@ -104,10 +104,12 @@ class FrontProductListController extends Controller
     public function allProduct($name, Request $request)
     {
         $category = Category::where('slug', $name)->first();
-       
+        $filterSubCategories = [];
+
         if($request->subcategory){
             $products = $this->filterProducts($request);
-            // $filterSubCategories = $this->getSubcategoriesId($request);
+            $filterSubCategories = $this->getSubcategoriesId($request);
+            //return $filterSubCategories;
         }elseif($request->min||$request->max){
             $products = $this->filterByPrice($request);
 
@@ -117,7 +119,7 @@ class FrontProductListController extends Controller
 
         $subcategories = Subcategory::where('category_id', $category->id)->get();
         $slug = $name;
-        return view('category', compact('products', 'subcategories', 'slug'));
+        return view('category', compact('products', 'subcategories', 'slug', 'filterSubCategories'));
     }
 
 
@@ -129,6 +131,17 @@ class FrontProductListController extends Controller
         }
         $products = Product::whereIn('subcategory_id',$subId)->get();
         return $products;
+
+    }
+
+    public function getSubcategoriesId(Request $request){
+        $subId =[];
+        $subcategory = Subcategory::whereIn('id',$request->subcategory)->get();
+        foreach($subcategory as $sub){
+            array_push($subId, $sub->id);
+        }
+    
+        return $subId;
 
     }
 }
