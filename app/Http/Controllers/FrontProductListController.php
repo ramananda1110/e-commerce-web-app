@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\Subcategory;
 class FrontProductListController extends Controller
 {
     /**
@@ -99,5 +101,13 @@ class FrontProductListController extends Controller
         //
     }
 
+    public function allProduct($name)
+    {
+        $category = Category::where('slug', $name)->first();
+        $products = Product::where('category_id', $category->id)->get();
+        $subcategories = Subcategory::where('category_id', $category->id)->get();
+
+        return view('category', compact('products', 'subcategories'));
+    }
 
 }

@@ -37,6 +37,7 @@ Auth::routes();
 
 Route::get('/', 'FrontProductListController@index');
 Route::get('/product/{id}', 'FrontProductListController@show')->name('product.view');
+Route::get('/category/{name}', 'FrontProductListController@allProduct')->name('product.list');
 
 Route::get('subcategories/{id}', 'ProductController@loadSubcatogories');
 

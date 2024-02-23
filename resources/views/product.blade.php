@@ -19,7 +19,8 @@
 
 <h2>Category</h2>
 @foreach(App\Models\Category::all() as $cat)
-    <button class="btn btn-secondary">{{$cat->name}}</button>
+     <a href="{{route('product.list', [$cat->slug])}}"><button class="btn btn-secondary">{{$cat->name}}</button>
+      </a>
     @endforeach
 
 <div class="album py-5 bg-body-tertiary">
@@ -38,7 +39,7 @@
             <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
-                <a href="product/{{$product->id}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
+                <a href="{{route('product.view',[$product->id])}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
                 <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
               </div>
               <small class="text-body-secondary">৳{{$product->price}}</small>
@@ -48,8 +49,6 @@
       </div>
 
      @endforeach
-     
-      
     </div>
   </div>
 </div>
@@ -76,7 +75,7 @@
                     <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>
                     <div class="d-flex justify-content-between align-items-center">
                       <div class="btn-group">
-                        <a href="product/{{$product->id}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
+                        <a href="{{route('product.view',[$product->id])}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
                         <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
                       </div>
                       <small class="text-body-secondary">৳{{$product->price}}</small>
@@ -100,7 +99,7 @@
                       <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>
                       <div class="d-flex justify-content-between align-items-center">
                         <div class="btn-group">
-                          <a href="product/{{$product->id}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
+                          <a href="{{route('product.view',[$product->id])}}"><button type="button" class="btn btn-sm btn-outline-success">View</button> </a>
                           <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
                         </div>
                         <small class="text-body-secondary">৳{{$product->price}}</small>
