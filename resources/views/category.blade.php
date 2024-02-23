@@ -8,7 +8,7 @@
 
       <div class="row">
         <div class="col-md-2">
-             <form action="#" method="GET">
+             <form action="{{route('product.list',[$slug])}}" method="GET">
             <!--foreach subcategories-->
             @foreach($subcategories as $subcategory)
            
@@ -18,7 +18,7 @@
                 {{in_array($subcategory->id,$filterSubCategories)?'checked ="checked" ':''}}
                @endif
 
-               >{{$subcategory->name}}</p>
+               > {{$subcategory->name}}</p>
            <!--end foreach-->
            @endforeach
           <input type="submit" value="Filter" class="btn btn-secondary">
@@ -26,7 +26,7 @@
          <hr>
          <h3>Filter by price</h3>
 
-         <form  action="#" method="GET">
+         <form  action="{{route('product.list',[$slug])}}" method="GET">
              <input type="text" name="min" class="form-control" placeholder="minimum price" required="">
             <br>
              <input type="text" name="max" class="form-control" placeholder="maximum price" required=""  >
@@ -38,7 +38,7 @@
 
         </form>
        <hr>
-       <a href="#">Back</a>
+       <a href="{{route('product.list',[$slug])}}">Back</a>
 
       
 
@@ -61,7 +61,7 @@
                 <div class="btn-group">
                  <a href="{{route('product.view',[$product->id])}}"> <button type="button" class="btn btn-sm btn-outline-success">View</button>
                  </a>
-               <a href="#"> <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
+               <a href="#">   <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
                </a>
                 </div>
                 <small class="text-muted">${{$product->price}}</small>
