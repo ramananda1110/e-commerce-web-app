@@ -17,10 +17,13 @@
   <!-- include summernote css/js -->
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
   
-  @notifyCss
+  
 </head>
 
 <body id="page-top">
 
+@notifyCss
 
+<x-notify::notify />
+        @notifyJs
   

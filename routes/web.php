@@ -41,6 +41,14 @@ Route::get('/category/{name}', 'FrontProductListController@allProduct')->name('p
 
 Route::get('subcategories/{id}', 'ProductController@loadSubcatogories');
 
+Route::get('/addToCart/{product}','CartController@addToCart')->name('add.cart');
+
+
+Route::get('/cart','CartController@showCart')->name('cart.show');
+
+Route::post('/products/{product}','CartController@updateCart')->name('cart.update');
+Route::post('/product/{product}','CartController@removeCart')->name('cart.remove');
+
 
 Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function (){
    
@@ -56,6 +64,7 @@ Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function ()
 
     Route::resource('product', 'ProductController');
     
+
 
 
 

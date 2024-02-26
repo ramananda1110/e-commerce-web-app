@@ -18,6 +18,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @notifyCss
+
+    <x-notify::notify />
+        @notifyJs
 </head>
 <body>
     <div id="app">
@@ -41,7 +46,8 @@
                         <!-- Authentication Links -->
                         <a href="" class="nav-link">
                             <span class="fas fa-shopping-cart">
-                             0
+                                ( {{session()->has('cart')?session()->get('cart')->totalQty:'0'}} )
+
                             </span>
                         </a>
                         @guest
