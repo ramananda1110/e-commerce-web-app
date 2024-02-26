@@ -39,7 +39,8 @@
     });
   </script> 
 
-
+<x-notify::notify />
+        @notifyJs
 
 </body>
 

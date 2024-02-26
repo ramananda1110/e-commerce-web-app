@@ -22,10 +22,11 @@
                > {{$subcategory->name}}</p>
            <!--end foreach-->
            @endforeach
-          <input type="submit" value="Filter" class="btn btn-secondary">
+          <input type="submit" value="Filter" class="btn btn-primary mt-2" style="color:black;">
          </form>
-         <hr>
-         <h3>Filter by price</h3>
+         <hr class="mt-2">
+        
+         <h3 class="mt-2">Filter by price</h3>
 
          <form  action="{{route('product.list',[$slug])}}" method="GET">
              <input type="text" name="min" class="form-control" placeholder="minimum price" required="">
@@ -35,14 +36,12 @@
              
              <br>
              <br>
-            <input type="submit" value="Filter" class="btn btn-secondary">
+            <input type="submit" value="Filter" class="btn btn-primary" style="color:black;">
 
         </form>
-       <hr>
-       <a href="{{route('product.list',[$slug])}}">Back</a>
-
+       <hr class="mt-2">
       
-
+       <a href="{{route('product.list',[$slug])}}">Back</a>
 
 
         </div>
@@ -52,7 +51,7 @@
       @foreach($products as $product)
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
-            <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%">
+            <img src="{{Storage::url($product->image)}}" height="100" style="width: 100%; height: 200px;">
             <div class="card-body">
                 <p><b>{{$product->name}} </b></p>
               <p class="card-text">
@@ -63,7 +62,7 @@
                 <div class="btn-group">
                  <a href="{{route('product.view',[$product->id])}}"> <button type="button" class="btn btn-sm btn-outline-success">View</button>
                  </a>
-               <a href="#">   <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
+               <a href="{{route('add.cart',[$product->id])}}"> <button type="button" class="btn btn-sm btn-outline-primary">Add to cart</button>
                </a>
                 </div>
                 <small class="text-muted">${{$product->price}}</small>

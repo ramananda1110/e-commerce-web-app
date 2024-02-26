@@ -33,7 +33,7 @@
       
       <td><img src="{{Storage::url($product['image'])}}" width="100"></td>
       <td>{{$product['name']}}</td>
-      <td>${{$product['price']}}</td>
+      <td>৳{{$product['price']}}</td>
       <td>
     <form action="{{route('cart.update',$product['id'])}}" method="post">@csrf
       	<input type="text" name="qty" value="{{$product['qty']}}">
@@ -43,7 +43,7 @@
       </form>
     </td>
       <td>
-    <form action="#" method="post">@csrf
+    <form action="{{route('cart.remove',$product['id'])}}" method="post">@csrf
 
       	<button class="btn btn-danger">Remove</button>
       </form>
@@ -58,7 +58,7 @@
 <hr>
 <div class="card-footer">
 	<a href="{{url('/')}}"><button style="margin-left: 50px; margin-top: 10px;" class="btn btn-primary">Continue shopping</button></a>
-	<span style="margin-left: 300px;">Total Price:${{$cart->totalPrice}}</span>
+	<span style="margin-left: 300px;">Total Price: ৳{{$cart->totalPrice}}</span>
 
 	<a href="#"><button class="btn btn-info float-end" style="margin-right: 50px; margin-top: 10px;">Checkout</button></a>
 
