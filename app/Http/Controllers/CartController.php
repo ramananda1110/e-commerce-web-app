@@ -69,9 +69,18 @@ class CartController extends Controller
     	}else{
     		session()->put('cart',$cart);
     		
-
     	}
     	notify()->success(' Cart updated!');
             return redirect()->back();
+    }
+
+
+	public function checkout($amount){
+        if(session()->has('cart')){
+            $cart = new Cart(session()->get('cart'));
+        }else{
+            $cart = null;
+        }  
+        return view('checkout',compact('amount','cart'));
     }
 }

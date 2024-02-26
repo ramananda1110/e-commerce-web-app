@@ -51,6 +51,9 @@ Route::post('/products/{product}','CartController@updateCart')->name('cart.updat
 Route::post('/product/{product}','CartController@removeCart')->name('cart.remove');
 
 
+Route::get('/checkout/{amount}','CartController@checkout')->name('cart.checkout')->middleware('auth');
+
+
 Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function (){
    
     Route::get('/dashboard', function () {

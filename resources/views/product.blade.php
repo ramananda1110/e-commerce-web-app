@@ -33,7 +33,7 @@
     @foreach($products as $product)
       <div class="col">
         <div class="card shadow-sm">
-           <img src="{{Storage::url($product->image)}}" height="300" style="width: 100%"> 
+           <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%; height: 250px"> 
           <div class="card-body">
             <p><b>{{$product->name}}</b></p>
             <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>
@@ -69,7 +69,7 @@
           <div class="col-4">
               
                 <div class="card shadow-sm">
-                  <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%"> 
+                  <img src="{{Storage::url($product->image)}}" height="20" style="width: 100%; height: 250px"> 
                   <div class="card-body">
                     <p><b>{{$product->name}}</b></p>
                     <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>
@@ -93,7 +93,7 @@
           @foreach($randomItemProducts as $product)
             <div class="col-4">
                   <div class="card shadow-sm">
-                    <img src="{{Storage::url($product->image)}}" height="200" widh="100"> 
+                    <img src="{{Storage::url($product->image)}}" height="200" style="width: 100%; height: 250px"> 
                     <div class="card-body">
                       <p><b>{{$product->name}}</b></p>
                       <p class="card-text">{!! Str::limit(strip_tags($product->description), 120) !!}</p>

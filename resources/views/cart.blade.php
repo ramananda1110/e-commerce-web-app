@@ -60,7 +60,7 @@
 	<a href="{{url('/')}}"><button style="margin-left: 50px; margin-top: 10px;" class="btn btn-primary">Continue shopping</button></a>
 	<span style="margin-left: 300px;">Total Price: ৳{{$cart->totalPrice}}</span>
 
-	<a href="#"><button class="btn btn-info float-end" style="margin-right: 50px; margin-top: 10px;">Checkout</button></a>
+	<a href="{{route('cart.checkout',$cart->totalPrice)}}"><button class="btn btn-info float-end" style="margin-right: 50px; margin-top: 10px;">Checkout</button></a>
 
 
 </div>
