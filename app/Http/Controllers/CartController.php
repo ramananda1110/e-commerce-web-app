@@ -38,49 +38,28 @@ class CartController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function showCart(){
+    	if(session()->has('cart')){
+    		$cart = new Cart(session()->get('cart'));
+    	}else{
+    		$cart = null;
+    	}
+    	return view('cart',compact('cart'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
+    public function updateCart(Request $request, Product $product){
+    	$request->validate([
+    		'qty'=>'required|numeric|min:1'
+    	]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
+    	$cart  = new Cart(session()->get('cart'));
+    	$cart->updateQty($product->id,$request->qty);
+    	session()->put('cart',$cart);
+    	notify()->success(' Cart updated!');
+        return redirect()->back();
 
+    }
     /**
      * Update the specified resource in storage.
      *
