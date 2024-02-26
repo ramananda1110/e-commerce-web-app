@@ -83,4 +83,41 @@ class CartController extends Controller
         }  
         return view('checkout',compact('amount','cart'));
     }
+
+
+	public function charge(Request $request){
+        // $charge = Stripe::charges()->create([
+        //     'currency'=>"USD",
+        //     'source'=>$request->stripeToken,
+        //     'amount'=>$request->amount,
+        //     'description'=>'Test'
+        // ]);
+
+        $chargeId = 102;
+        if(session()->has('cart')){
+            $cart = new Cart(session()->get('cart'));
+        }else{
+            $cart = null;
+        } 
+        
+		//\Mail::to(auth()->user()->email)->send(new Sendmail($cart));
+
+      
+
+        if($chargeId){
+            auth()->user()->orders()->create([
+
+                'cart'=>serialize(session()->get('cart'))
+            ]);
+
+            session()->forget('cart');
+            notify()->success(' Transaction completed!');
+            return redirect()->to('/');
+
+        } else{
+            return redirect()->back();
+        }
+
+    }
+
 }

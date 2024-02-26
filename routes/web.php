@@ -52,6 +52,7 @@ Route::post('/product/{product}','CartController@removeCart')->name('cart.remove
 
 
 Route::get('/checkout/{amount}','CartController@checkout')->name('cart.checkout')->middleware('auth');
+Route::post('/charge','CartController@charge')->name('cart.charge');
 
 
 Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function (){

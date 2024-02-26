@@ -111,11 +111,11 @@ Total Price:${{$cart->totalPrice}}
               <input type="hidden" name="amount" value="{{$amount}}">
 
 
-                <div class="">
-                <label for="card-element">
+                <div>
+                <label>
                     Credit or debit card
                   </label>
-                  <div id="card-element">
+                  <div>
                     <!-- A Stripe Element will be inserted here. -->
                   </div>
 
@@ -196,7 +196,7 @@ form.addEventListener('submit', function(event) {
       errorElement.textContent = result.error.message;
     } else {
       // Send the token to your server.
-      stripeTokenHandler(result.token);
+      //stripeTokenHandler(result.token);
     }
   });
 });
