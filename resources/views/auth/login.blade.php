@@ -1,6 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+    /* Normal state */
+    .btn.btn-primary {
+        color: #000000; /* Set the text color to white */
+    }
+
+    /* Hover state */
+    .btn.btn-primary:hover {
+        color: #ffffff; /* Set the text color to white on hover */
+    }
+</style>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

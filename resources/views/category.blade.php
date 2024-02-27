@@ -2,6 +2,17 @@
 
 @section('content')
 
+<style>
+    /* Normal state */
+    .btn.btn-secondary {
+        color: #000000; /* Set the text color to white */
+    }
+
+    /* Hover state */
+    .btn.btn-secondary:hover {
+        color: #ffffff; /* Set the text color to white on hover */
+    }
+</style>
 
     <div class="container">
         <h2>Products</h2>
@@ -22,7 +33,7 @@
                > {{$subcategory->name}}</p>
            <!--end foreach-->
            @endforeach
-          <input type="submit" value="Filter" class="btn btn-primary mt-2" style="color:black;">
+          <input type="submit" value="Filter" class="btn btn-secondary mt-2">
          </form>
          <hr class="mt-2">
         
@@ -36,7 +47,7 @@
              
              <br>
              <br>
-            <input type="submit" value="Filter" class="btn btn-primary" style="color:black;">
+            <input type="submit" value="Filter" class="btn btn-secondary">
 
         </form>
        <hr class="mt-2">

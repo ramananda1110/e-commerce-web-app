@@ -68,10 +68,6 @@ Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function ()
     Route::resource('test', 'TestController');
 
     Route::resource('product', 'ProductController');
-    
-
-
-
 
 });
 
