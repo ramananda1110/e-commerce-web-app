@@ -120,4 +120,22 @@ class CartController extends Controller
 
     }
 
+
+    //for loggedin user
+    public function order(){
+        $orders = auth()->user()->orders;
+        $carts =$orders->transform(function($cart,$key){
+            return unserialize($cart->cart);
+
+        });
+        return view('order',compact('carts'));
+
+    }
+
+    //for admin
+    public function userOrder(){
+        $orders = Order::latest()->get();
+        return view('admin.order.index',compact('orders'));
+    }
+
 }
