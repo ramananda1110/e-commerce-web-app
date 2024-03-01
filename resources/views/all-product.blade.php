@@ -4,12 +4,12 @@
 
  <div class="container">
  	<form action="{{route('more.product')}}" method="GET">
- 		<div class="form-row">
+ 		<div class="form-group">
  			<div class="col-md-8">
  				<input type="text" name="search" class="form-control" placeholder="search...">
  			</div>
  			<div class="col-md-4">
- 				<button type="submit" class="btn btn-primary">Search</button>
+ 				<button type="from-group" class="btn btn-primary">Search</button>
  			</div>
  		</div>
 
