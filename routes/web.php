@@ -44,11 +44,13 @@ Route::get('subcategories/{id}', 'ProductController@loadSubcatogories');
 Route::get('/addToCart/{product}','CartController@addToCart')->name('add.cart');
 
 
+
 Route::get('/cart','CartController@showCart')->name('cart.show');
 
 Route::post('/products/{product}','CartController@updateCart')->name('cart.update');
 
 Route::post('/product/{product}','CartController@removeCart')->name('cart.remove');
+Route::get('all/products','FrontProductListController@moreProducts')->name('more.product');
 
 
 Route::get('/checkout/{amount}','CartController@checkout')->name('cart.checkout')->middleware('auth');

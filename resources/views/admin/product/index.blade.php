@@ -41,7 +41,8 @@
                        
                         <td><img src="{{Storage::url($product->image)}}" width="80px"/></td>
                         <td>{{$product->name}}</td>
-                        <td>{!!$product->description!!}</td>
+                        <td">{!! Str::limit(strip_tags($product->description), 200) !!}</td>
+
                         <td>{!!$product->additional_info!!}</td>
                         <td>{{$product->price}}৳</td>
                         <td>{{$product->category->name}}</td>
@@ -63,6 +64,8 @@
                     
                     </tbody>
                   </table>
+                  {{$products->links('pagination::bootstrap-4')}}
+
                 </div>
                 <div class="card-footer"></div>
               </div>
