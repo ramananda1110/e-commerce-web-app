@@ -32,7 +32,7 @@ Route::get('/index/test', function () {
 Auth::routes();
 
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::get('/', 'FrontProductListController@index');
@@ -57,6 +57,7 @@ Route::get('/checkout/{amount}','CartController@checkout')->name('cart.checkout'
 Route::post('/charge','CartController@charge')->name('cart.charge');
 
 Route::get('/orders','CartController@order')->name('order')->middleware('auth');
+
 
 
 Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function (){

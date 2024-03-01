@@ -77,7 +77,7 @@
           </div>
         </div>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-fw fa-table"></i>
@@ -90,8 +90,8 @@
             <a class="collapse-item" href="datatables.html">DataTables</a>
           </div>
         </div>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a class="nav-link" href="ui-colors.html">
           <i class="fas fa-fw fa-palette"></i>
           <span>UI Colors</span>
@@ -116,12 +116,13 @@
             <a class="collapse-item" href="blank.html">Blank Page</a>
           </div>
         </div>
-      </li>
+      </li> -->
       <li class="nav-item">
-         
+
           <a class="dropdown-item" href="{{ route('logout') }}"
                 onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();">
+               <i class="fas fa-sign-out-alt"></i>
                Logout
             </a>
 
@@ -131,5 +132,6 @@
       
       </li>
       <hr class="sidebar-divider">
+
       <div class="version" id="version-ruangadmin"></div>
     </ul>
