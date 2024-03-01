@@ -74,6 +74,7 @@ Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function ()
 
     Route::resource('product', 'ProductController');
 
+	Route::get('users','UserController@index')->name('user.index');
 
     Route::get('slider/create','SliderController@create')->name('slider.create');
 	Route::get('slider','SliderController@index')->name('slider.index');
