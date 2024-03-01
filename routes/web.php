@@ -58,6 +58,7 @@ Route::post('/charge','CartController@charge')->name('cart.charge');
 
 Route::get('/orders','CartController@order')->name('order')->middleware('auth');
 
+
 Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function (){
    
     Route::get('/dashboard', function () {

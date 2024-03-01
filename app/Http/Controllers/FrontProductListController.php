@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Subcategory;
+use App\Models\Slider;
 class FrontProductListController extends Controller
 {
     /**
@@ -25,8 +26,10 @@ class FrontProductListController extends Controller
             array_push($randomActiveProductIds, $product->id);
         }
         $randomItemProducts = Product::whereNotIn('id', $randomActiveProductIds)->limit(3)->get();
+        $sliders = Slider::get();
+
         //return $randomItemProducts;
-        return view('product', compact('products', 'randomActiveProducts', 'randomItemProducts'));
+        return view('product', compact('products', 'randomActiveProducts', 'randomItemProducts', 'sliders'));
     }
 
     /**
