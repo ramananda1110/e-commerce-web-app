@@ -82,6 +82,9 @@ Route::group(['prefix'=>'auth', 'middleware'=>['auth', 'isAdmin']],  function ()
 	Route::delete('slider/{id}','SliderController@destroy')->name('slider.destroy');
 
 
+    Route::get('orders', 'CartController@userOrder')->name('order.index');
+	Route::get('/orders/{userid}/{orderid}','CartController@viewUserOrder')->name('user.order');
+
 });
 
 

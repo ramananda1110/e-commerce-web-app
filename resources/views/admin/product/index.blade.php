@@ -41,9 +41,8 @@
                        
                         <td><img src="{{Storage::url($product->image)}}" width="80px"/></td>
                         <td>{{$product->name}}</td>
-                        <td">{!! Str::limit(strip_tags($product->description), 200) !!}</td>
-
-                        <td>{!!$product->additional_info!!}</td>
+                        <td>{!! Str::limit(strip_tags($product->description), 200) !!}</td>
+                        <td>{!! Str::limit(strip_tags($product->additional_info), 200) !!}</td>
                         <td>{{$product->price}}৳</td>
                         <td>{{$product->category->name}}</td>
                         

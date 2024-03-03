@@ -79,6 +79,20 @@
       </li>
 
       <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#orderCollapse" aria-expanded="true"
+          aria-controls="orderCollapse">
+          <i class="fab fa-fw fa-wpforms"></i>
+          <span>User Order</span>
+        </a>
+        <div id="orderCollapse" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Slider</h6>
+            <a class="collapse-item" href="{{route('order.index')}}">View</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#usersList" aria-expanded="true"
           aria-controls="usersList">
           <i class="fab fa-fw fa-wpforms"></i>

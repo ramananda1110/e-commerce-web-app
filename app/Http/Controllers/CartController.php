@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Cart;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\User;
 
 class CartController extends Controller
 {
@@ -138,4 +140,13 @@ class CartController extends Controller
         return view('admin.order.index',compact('orders'));
     }
 
+    public function viewUserOrder($userid,$orderid){
+        $user = User::find($userid);
+        $orders = $user->orders->where('id',$orderid);
+        $carts =$orders->transform(function($cart,$key){
+            return unserialize($cart->cart);
+
+        });
+        return view('admin.order.show',compact('carts'));
+    }
 }

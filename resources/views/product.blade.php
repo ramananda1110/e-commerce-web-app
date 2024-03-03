@@ -35,7 +35,7 @@
 </section>
 
 <h2>Category</h2>
-@foreach(App\Models\Category::all() as $cat)
+    @foreach(App\Models\Category::all() as $cat)
      <a href="{{route('product.list', [$cat->slug])}}"><button class="btn btn-secondary">{{$cat->name}}</button>
       </a>
     @endforeach
@@ -70,10 +70,7 @@
   </div>
 
   <center>
-      <a href="{{route('more.product')}}"> <button class="btn btn-success">More Product</button>
-          
-    
-      </a>
+      <a href="{{route('more.product')}}"> <button class="btn btn-success">More Product</button></a>
   </center>
 
 </div>
